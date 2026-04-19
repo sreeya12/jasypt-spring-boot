@@ -1,7 +1,7 @@
 name: Java CI
 
 # CHANGE 1: allow PRs (including forks)
-on: [push, pull_request]
+on: [push, pull_request, workflow_dispatch]
 
 concurrency:
   # CHANGE 2: better concurrency key for PRs (optional but safe)
