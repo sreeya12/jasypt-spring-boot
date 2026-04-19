@@ -10,11 +10,13 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         java: [ '17', '18', '19', '21' ]
         distribution: [ 'zulu', 'temurin' ]
+        os: [ubuntu-latest, windows-latest, macos-latest]
     name: Java ${{ matrix.java }} ${{ matrix.distribution }} build
     steps:
     - uses: actions/checkout@v4
